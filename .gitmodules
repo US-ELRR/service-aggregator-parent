@@ -4,4 +4,4 @@
 [submodule "elrrservices"]
 	path = elrrservices
 	url = https://github.com/US-ELRR/elrrservices.git
-	branch = p2997_alignment
+	branch = dev-update-base

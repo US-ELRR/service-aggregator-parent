@@ -1,4 +1,4 @@
-.phony: sync, clean, build
+.phony: sync, clean, package
 
 sync:
 	git submodule init
@@ -7,5 +7,5 @@ sync:
 clean:
 	mvn clean
 
-build: clean
+package: clean
 	mvn package
