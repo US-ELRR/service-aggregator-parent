@@ -28,8 +28,14 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <target>
+                            <target name="copy-services-jar">
                                 <copy file="elrrservices/target/elrrservices-0.0.1-SNAPSHOT.jar" todir="target/"/>
+                            </target>
+                            <target id="copy-services-code-analysis" unless="skipTests">
+                                <mkdir dir="target/site"/>
+                                <copy todir="target/site">
+                                    <fileset dir="elrrservices/target/site" includes="**/*" />
+                                </copy>
                             </target>
                         </configuration>
                     </execution>
