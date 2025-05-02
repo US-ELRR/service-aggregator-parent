@@ -6,8 +6,9 @@
 
     <target name="copy-services-code-analysis" unless="skipTests">
         <mkdir dir="target/site"/>
-        <copy todir="target/site">
-            <fileset dir="report-aggregate/target/site" includes="**/*" />
+        <mkdir dir="target/site/jacoco"/>
+        <copy todir="target/site/jacoco">
+            <fileset dir="report-aggregate/target/site/jacoco-aggregate" includes="**/*" />
         </copy>
     </target>
 
