@@ -13,6 +13,7 @@
     <modules>
         <module>elrrserviceentities</module>
         <module>elrrservices</module>
+        <module>report-aggregate</module>
     </modules>
     <build>
         <plugins>
@@ -28,14 +29,24 @@
                             <goal>run</goal>
                         </goals>
                         <configuration>
-                            <target name="copy-services-jar">
-                                <copy file="elrrservices/target/elrrservices-0.0.1-SNAPSHOT.jar" todir="target/"/>
+                            <target>
+                                <ant antfile="cleanup.xml">
+                                    <target name="copy-services-jar"/>
+                                </ant>
                             </target>
-                            <target id="copy-services-code-analysis" unless="skipTests">
-                                <mkdir dir="target/site"/>
-                                <copy todir="target/site">
-                                    <fileset dir="elrrservices/target/site" includes="**/*" />
-                                </copy>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-service-code-coverage</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <ant antfile="cleanup.xml">
+                                    <target name="copy-services-code-analysis"/>
+                                </ant>
                             </target>
                         </configuration>
                     </execution>

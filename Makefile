@@ -19,5 +19,8 @@ source:
 	cp -R elrrservices/ source/elrrservices/
 	rm -rf source/elrrservices/target
 	rm -rf source/elrrservices/.github
+	mkdir source/report-aggregate
+	cp report-aggregate/pom.xml source/report-aggregate/pom.xml
 	cp pom.xml source/pom.xml
+	cp cleanup.xml source/cleanup.xml
 	zip -r source.zip source/
